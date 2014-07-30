@@ -52,6 +52,7 @@ Arvore* criarNo () {
 	novo->direita = NULL;
 	return novo;
 }
+
 int registrar (Arvore **A1) {
 	Arvore *novo;
 	novo = criarNo ();
@@ -62,6 +63,7 @@ int registrar (Arvore **A1) {
 	return 1;
 }
 
+
 int main () {
 	Arvore *A1, *A2;
 	A1 = NULL;
@@ -71,6 +73,14 @@ int main () {
 	printf("1 - Registrar uma pessoa\n");
 	printf("A1 %p\n", A1);
 	registrar (&A1);
+	registrar (&A2);
+	registrar (&A2->direita);
+	printf("A1->nome %s\n", A1->nome);
+	printf("A1->no->nome %s\n", A1->no->nome);
+	printf("A1->no->sexo %s\n", A1->no->sexo);
+	printf("A1->nome %s\n", A2->nome);
+	printf("A1->no->nome %s\n", A2->no->nome);
+	printf("A1->no->sexo %s\n", A2->no->sexo);
 	printf("A1->nome %s\n", A1->nome);
 	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("A1->no->sexo %s\n", A1->no->sexo);
