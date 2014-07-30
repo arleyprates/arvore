@@ -18,3 +18,7 @@ Padrão do código:
 ``RETORNO 2.X => retorno de funcoes de erro de alocacao ``
 
 ``RETORNO X => retorno de funcoes insercao de elemento``
+
+**Casamento**
+
+No Marido direita e No Esposa esquerda apontam para um No casamento.
