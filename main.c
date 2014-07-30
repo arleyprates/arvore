@@ -53,21 +53,34 @@ Arvore* criarNo () {
 int registrar (Arvore *A1) {
 	Arvore *novo;
 	novo = criarNo ();
-	novo->no = criarRegistro ();
-	inserirDados (novo);
 	A1 = novo;
+	novo->no = criarRegistro ();
+	A1->no = novo->no;
+	inserirDados (novo);
+	printf("A1->nome %s\n", A1->nome);
+	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("RETORNO1\n");
 	return 1;
 }
 
 int main () {
 	Arvore *A1, *A2;
-	A1 = NULL;
-	A2 = NULL;
+	//A1 = NULL;
+	//A2 = NULL;
 	printf("=============================\n");
 	printf("Menu\n");
 	printf("1 - Registrar uma pessoa\n");
 	registrar (A1);
+	printf("A1->nome %s\n", A1->nome);
+	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("=============================\n");
 	return 0;
 }
+
+
+
+
+
+
+
+
