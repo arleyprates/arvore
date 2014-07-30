@@ -9,6 +9,14 @@ E a dupla para esse trabalho são os alunos:
 
 **Elias Maciel**
 
+O arquivo de execução é o ``main.c``
+
+Para execuação em um terminal:
+
+``gcc main.c -o **NomeArquivoExecutavel**``
+
+``./**NomeArquivoExecutavel**``
+
 Padrão do código:
 
 **Retornos:**
