@@ -18,12 +18,12 @@ typedef struct arvore {
 	struct arvore *direita;
 } Arvore;
 
-void inserirDados (Arvore *A1) {
+void inserirDados (Arvore *aux) {
 	printf("Digite o nome da pessoa:\n");
-	scanf ("%s", A1->nome);
-	strcpy (A1->no->nome, A1->nome);
+	scanf ("%s", aux->nome);
+	strcpy (aux->no->nome, aux->nome);
 	printf("Digite o sexo da pessoa:\n");
-	scanf ("%s", A1->no->sexo);
+	scanf ("%s", aux->no->sexo);
 	printf("RETORNO2\n");	
 }
 
@@ -71,16 +71,12 @@ int criarRaiz (Arvore **A1) {
 	return 1;
 }
 
-int casamento (Arvore **A1) {
+int casamento (Arvore **A1, Arvore **A2) {
 	Arvore *novo;
 	novo = criarNo ();
 	novo->no = criarRegistro ();
-	inserirDados (novo);
-	printf("novo->nome %s\n", novo->nome);
-	printf("novo->no->sexo %s\n", novo->no->sexo);
-	(*A1)->direita = *novo;
-	printf("A1->nome %s\n", (*A1)->direita->nome);
-	printf("A1->no->nome %s\n", (*A1)->direita->no->sexo);
+	(*A1)->direita = novo;
+	(*A2)->esquerda = novo;	
 	printf("RETORNO3\n");
 	return 1;
 }
@@ -112,14 +108,15 @@ int main () {
 	printf("1 - Registrar um casal\n");
 	printf("2 - Registrar um casamento\n");
 	criarRaiz (&A1);
-	casamento (&A1->direita);
-	//criarRaiz (&A2);
+	criarRaiz (&A2);
+	casamento (&A1, &A2);
 	
-	
-
-	printf("A1->nome %s\n", A1->nome);
+	printf("\n\n\n Casal\n");
 	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("A1->no->sexo %s\n", A1->no->sexo);
+	printf("A2->no->nome %s\n", A2->no->nome);
+	printf("A2->no->sexo %s\n", A2->no->sexo);
+	printf("\n\n\n");
 	printf("A1->nome %s\n", A1->direita->nome);
 	printf("A1->no->nome %s\n", A1->direita->no->sexo);/*
 	printf("A1->no->sexo %s\n", A2->no->sexo);
