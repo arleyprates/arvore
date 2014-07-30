@@ -55,6 +55,7 @@ int registrar (Arvore *A1) {
 	novo = criarNo ();
 	novo->no = criarRegistro ();
 	inserirDados (novo);
+	A1 = novo;
 	printf("RETORNO1\n");
 	return 1;
 }
