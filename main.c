@@ -18,12 +18,12 @@ typedef struct arvore {
 	struct arvore *direita;
 } Arvore;
 
-void inserirDados (Arvore *aux) {
+void inserirDados (Arvore *A1) {
 	printf("Digite o nome da pessoa:\n");
-	scanf ("%s", aux->nome);
-	strcpy (aux->no->nome, aux->nome);
+	scanf ("%s", A1->nome);
+	strcpy (A1->no->nome, A1->nome);
 	printf("Digite o sexo da pessoa:\n");
-	scanf ("%s", aux->no->sexo);
+	scanf ("%s", A1->no->sexo);
 	printf("RETORNO2\n");	
 }
 
@@ -31,7 +31,7 @@ Registro* criarRegistro () {
 	Registro *novo;
 	novo = (Registro*) malloc (sizeof(Registro));
 	if (novo == NULL) {
-		printf("RETORNO2.1 - ALOCACAO\n");
+		printf("RETORNO2.4 - ALOCACAO\n");
 		return 0;
 	}
 	novo->no_pai = NULL;
@@ -45,11 +45,19 @@ Arvore* criarNo () {
 	Arvore* novo;
 	novo = (Arvore*) malloc (sizeof(Arvore));
 	if (novo == NULL) {
-		printf("RETORNO2.0 - ALOCACAO\n");
+		printf("RETORNO2.1 - ALOCACAO\n");
 		return 0;
 	}
-	novo->esquerda = NULL;
-	novo->direita = NULL;
+	novo->esquerda = (Arvore*) malloc (sizeof(Arvore));
+	if (novo == NULL) {
+		printf("RETORNO2.2 - ALOCACAO\n");
+		return 0;
+	}
+	novo->direita = (Arvore*) malloc (sizeof(Arvore));
+	if (novo == NULL) {
+		printf("RETORNO2.3 - ALOCACAO\n");
+		return 0;
+	}
 	return novo;
 }
 
@@ -63,7 +71,16 @@ int criarRaiz (Arvore **A1) {
 	return 1;
 }
 
-int casamento () {
+int casamento (Arvore **A1) {
+	Arvore *novo;
+	novo = criarNo ();
+	novo->no = criarRegistro ();
+	inserirDados (novo);
+	printf("novo->nome %s\n", novo->nome);
+	printf("novo->no->sexo %s\n", novo->no->sexo);
+	(*A1)->direita = *novo;
+	printf("A1->nome %s\n", (*A1)->direita->nome);
+	printf("A1->no->nome %s\n", (*A1)->direita->no->sexo);
 	printf("RETORNO3\n");
 	return 1;
 }
@@ -93,20 +110,22 @@ int main () {
 	printf("=============================\n");
 	printf("Menu\n");
 	printf("1 - Registrar um casal\n");
+	printf("2 - Registrar um casamento\n");
 	criarRaiz (&A1);
-	criarRaiz (&A2);
+	casamento (&A1->direita);
+	//criarRaiz (&A2);
 	
 	
 
 	printf("A1->nome %s\n", A1->nome);
 	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("A1->no->sexo %s\n", A1->no->sexo);
-	printf("A1->nome %s\n", A2->nome);
-	printf("A1->no->nome %s\n", A2->no->nome);
+	printf("A1->nome %s\n", A1->direita->nome);
+	printf("A1->no->nome %s\n", A1->direita->no->sexo);/*
 	printf("A1->no->sexo %s\n", A2->no->sexo);
 	printf("A1->nome %s\n", A1->nome);
 	printf("A1->no->nome %s\n", A1->no->nome);
-	printf("A1->no->sexo %s\n", A1->no->sexo);
+	printf("A1->no->sexo %s\n", A1->no->sexo);*/
 	printf("=============================\n");
 	return 0;
 }
