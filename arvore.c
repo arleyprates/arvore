@@ -11,14 +11,15 @@ typedef struct arvore {
 	struct arvore* filho;
 } no;
 
-typedef struct linha {
+/*typedef struct linha {
 	//int inicio;
 	int maximo;
 	no* node;
-} tabela;
+} tabela;*/
 
 typedef struct principal {
-	tabela *tab;
+	//tabela *tab;
+	char tabela[100][8];
 	no *direita;
 	no *esquerda;
 } primeira;
@@ -50,14 +51,14 @@ no* criarNo () {
 	return novo;
 }
 
-void inicializaVetor (primeira *P1, int tamanho) {
+/*void inicializaVetor (primeira *P1, int tamanho) {
 	P1->tab = (tabela*) malloc (tamanho*sizeof (tabela));
 	if (P1->tab == NULL)
 		printf("ERRO DE ALOCAO\n");
 	P1->tab->maximo = tamanho;
 	P1->tab->node = NULL;
 	printf("RETORNO5\n");
-}
+}*/
 
 int registrar (primeira *P1) {
 	no *novo, *linha_nova;
@@ -68,7 +69,7 @@ int registrar (primeira *P1) {
 		inserirDados (novo);
 		P1->direita = novo;
 		//linha_nova = novo;
-		P1->tab->node = novo;
+		//P1->tab->node = novo;
 		printf("RETORNO1\n");
 		return 1;
 	} /*else {
@@ -86,14 +87,14 @@ int registrar (primeira *P1) {
 int main () {
 	primeira *P1;
 	int tamanho;
-	P1->tab = NULL;
+	//P1->tab = NULL;
 	P1->direita = NULL;
 	P1->esquerda = NULL;
 	printf("=============================\n");
 	printf("Menu\n");
 	printf("1 - Registrar uma pessoa\n");
 	registrar (P1);
-	inicializaVetor (P1, 100);
+	//inicializaVetor (P1, 100);
 	printf("=============================\n");
 	return 0;
 }
