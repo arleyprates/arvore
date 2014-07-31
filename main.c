@@ -94,9 +94,27 @@ int casamento (Arvore **A1, Arvore **A2) {
 }
 
 int filho (Arvore **A1) {
-	//Arvore *novo;
-	//if ((*A1)->direita = )
-	//(*A1)->direita->no = (*A2)->
+	Arvore *novo;
+	if ((*A1)->no->no_conjuge != NULL) {
+		if ((*A1)->no->no_filho != NULL) {
+			novo = criarNo ();
+			novo->no = criarRegistro ();
+			inserirDados (novo);
+			novo->no->no_pai = criarRegistro ();
+			novo->no->no_pai = (*A1)->no;
+			(*A1)->no->no_filho = criarRegistro ();
+			(*A1)->no->no_filho = novo->no;
+			return 1;
+		}
+		novo = criarNo ();
+		novo->no = criarRegistro ();
+		inserirDados (novo);
+		novo->no->no_pai = criarRegistro ();
+		novo->no->no_pai = (*A1)->no;
+		(*A1)->no->no_filho = criarRegistro ();
+		(*A1)->no->no_filho = novo->no;
+		return 1;
+	}
 	printf("RETORNO4\n");
 	return 1;
 }
@@ -120,14 +138,15 @@ int main () {
 	criarRaiz (&A1);
 	criarRaiz (&A2);
 	casamento (&A1, &A2);
-	
+	filho (&A1);
+	printf ("A1->no->no_filho->nome %s", A1->no->no_filho->nome);
 	printf("\n\n\n Casal\n");
 	printf("A1->no->nome %s\n", A1->no->nome);
 	printf("A1->no->sexo %s\n", A1->no->sexo);
 	printf("A2->no->nome %s\n", A2->no->nome);
 	printf("A2->no->sexo %s\n", A2->no->sexo);
 	printf("\n\n\n Casamento\n");
-	printf("A1->->direita->nome %s\n", A1->direita->nome);
+	printf("A1->direita->nome %s\n", A1->direita->nome);
 	printf("A1->direita->no->nome %s\n", A1->direita->no->nome);/*
 	printf("A1->no->sexo %s\n", A2->no->sexo);
 	printf("A1->nome %s\n", A1->nome);
