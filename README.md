@@ -45,3 +45,5 @@ Atualizando o No pai com endereço do filho.
 
 E atualizando o No mae com endereço do filho.
 
+Atualizar o No Raiz direita apontando para o No casamento
+
