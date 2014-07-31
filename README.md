@@ -41,5 +41,7 @@ O primeiro filho do No Casamento será o No da esquerda.
 
 Atualizando esse novo filho com o endereço do No Pai.
 
-E atualizando o No pai com endereço do filho.
+Atualizando o No pai com endereço do filho.
+
+E atualizando o No mae com endereço do filho.
 
