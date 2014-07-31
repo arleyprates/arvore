@@ -30,3 +30,5 @@ Padrão do código:
 **Casamento**
 
 No Marido direita e No Esposa esquerda apontam para um No casamento.
+
+E No Marido conjuge aponta para No Esposa. E No Esposa conjuge aponta para No Marido.
