@@ -32,3 +32,14 @@ Padrão do código:
 No Marido direita e No Esposa esquerda apontam para um No casamento.
 
 E No Marido conjuge aponta para No Esposa. E No Esposa conjuge aponta para No Marido.
+
+No Casamento poderá ter até dois filhos.
+
+**Filhos**
+
+O primeiro filho do No Casamento será o No da esquerda.
+
+Atualizando esse novo filho com o endereço do No Pai.
+
+E atualizando o No pai com endereço do filho.
+
