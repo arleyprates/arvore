@@ -83,19 +83,21 @@ int casamento (Arvore **A1, Arvore **A2) {
 	strcat (novo->no->nome,  " e ");
 	strcat (novo->nome, (*A2)->nome);
 	strcat (novo->no->nome,  (*A2)->nome);
+	(*A1)->no->no_conjuge = criarRegistro ();
+	(*A2)->no->no_conjuge = criarRegistro ();
+	(*A1)->no->no_conjuge = (*A2)->no;
+	(*A2)->no->no_conjuge = (*A1)->no;
 	(*A1)->direita = novo;
-	(*A2)->esquerda = novo;	
+	(*A2)->esquerda = novo;
 	printf("RETORNO3\n");
 	return 1;
 }
 
-int filho () {
+int filho (Arvore **A1) {
+	//Arvore *novo;
+	//if ((*A1)->direita = )
+	//(*A1)->direita->no = (*A2)->
 	printf("RETORNO4\n");
-	return 1;
-}
-
-int irmao () {
-	printf("RETORNO5\n");
 	return 1;
 }
 
