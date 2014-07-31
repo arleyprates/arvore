@@ -96,6 +96,7 @@ int casamento (Arvore **A1, Arvore **A2) {
 int filho (Arvore **A1, Arvore **A2) {
 	Arvore *novo, *aux;
 	aux = *A1;
+	/*
 	printf("aux->no->no_filho %p\n", aux->no->no_filho);
 	printf("aux->direita->esquerda %p\n", aux->direita->esquerda);
 	while (aux->direita != NULL) {
@@ -105,19 +106,28 @@ int filho (Arvore **A1, Arvore **A2) {
 		}
 		if (aux->no->no_filho != NULL) {
 			printf("	!!!2if\n");
-			break;
+			//aux->direita = aux->direita->direita;
+			//if (aux->direita->esquerda->direita != NULL) {
+			//	printf("	!!!3if\n");
+			//	break;
+			//}
+			
 		}
-		if (aux->direita->esquerda != NULL) {
+		if (aux->direita->esquerda->direita != NULL) {
 			printf("	!!!3if\n");
+
 			printf("aux->no->no_filho %p\n", aux->no->no_filho);
-			printf("aux->direita->esquerda %p\n", aux->direita->esquerda);
+			printf("aux->direita->esquerda->nome %s\n", aux->direita->esquerda->nome);
+			//if (aux->direita->esquerda->nome == ' ');
+				printf("	!!!4if\n");
 			//aux->direita = aux->direita->esquerda;
 		}
 		break;
 	}
-
+*/
 	if ((*A1)->no->no_conjuge != NULL) {
 		if ((*A1)->no->no_filho != NULL) {
+			printf("	####1if\n");
 			novo = criarNo ();
 			novo->no = criarRegistro ();
 			inserirDados (novo);
@@ -127,20 +137,26 @@ int filho (Arvore **A1, Arvore **A2) {
 			(*A1)->no->no_filho = novo->no;
 			(*A2)->no->no_filho = criarRegistro ();
 			(*A2)->no->no_filho = novo->no;
+			(*A1)->direita->esquerda = novo;
+			(*A2)->esquerda->direita = novo;
 			printf("RETORNO6\n");
 			return 1;
-		}
-		novo = criarNo ();
-		novo->no = criarRegistro ();
-		inserirDados (novo);
-		novo->no->no_pai = criarRegistro ();
-		novo->no->no_pai = (*A1)->no;
-		(*A1)->no->no_filho = criarRegistro ();
-		(*A1)->no->no_filho = novo->no;
-		(*A2)->no->no_filho = criarRegistro ();
-		(*A2)->no->no_filho = novo->no;
-		printf("RETORNO5\n");
-		return 1;
+		} 	else {
+				printf("	######2if\n");
+				novo = criarNo ();
+				novo->no = criarRegistro ();
+				inserirDados (novo);
+				novo->no->no_pai = criarRegistro ();
+				novo->no->no_pai = (*A1)->no;
+				(*A1)->no->no_filho = criarRegistro ();
+				(*A1)->no->no_filho = novo->no;
+				(*A2)->no->no_filho = criarRegistro ();
+				(*A2)->no->no_filho = novo->no;
+				(*A1)->direita->esquerda = novo;
+				(*A2)->esquerda->esquerda = novo;
+				printf("RETORNO5\n");
+				return 1;
+			}
 	}
 	printf("RETORNO4\n");
 	return 1;
